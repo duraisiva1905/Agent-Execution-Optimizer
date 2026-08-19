@@ -1,0 +1,42 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "aeo-sdk"
+version = "0.1.0"
+description = "Agent Execution Optimizer: A framework-independent execution-control and optimization SDK for AI agents."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = [
+    "pydantic>=2.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio",
+    "ruff",
+    "mypy"
+]
+langchain = [
+    "langchain-core"
+]
+langgraph = [
+    "langgraph"
+]
+tiktoken = [
+    "tiktoken"
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/aeo"]
